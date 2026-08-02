@@ -39,7 +39,7 @@ export default function HeroSection() {
               className="bg-transparent m-1 text-white
  border border-gray-400 p-1 rounded-lg font-bold hover:bg-[#2D190A] hover:text-orange-400 hover:border-orange-300"
             >
-              <i class="fa-solid fa-circle-info text-white "></i> اعرف المزيد
+              <i className="fa-solid fa-circle-info text-white "></i> اعرف المزيد
             </Link>
           </div>
           <div className="flex justify-center gap-4 mt-12">

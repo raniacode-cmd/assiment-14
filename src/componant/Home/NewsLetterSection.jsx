@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
+import postsData from "../../Data/Posts.json"
 import { Link } from "react-router-dom";
 
 export default function NewsLetterSection() {
-  const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    axios.get("/Data/Posts.json").then((response) => {
-      console.log(response.data.posts);
-      setPosts(response.data.posts);
-    });
-  }, []);
+ 
 
-  const latestPosts = posts.filter(
+  const latestPosts =postsData.posts.filter(
     (posts) => posts.id === 4 || posts.id === 5 || posts.id === 6
   );
 

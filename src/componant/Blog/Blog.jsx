@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState,useEffect } from "react";
+import postsData from "../../Data/Posts.json"
 import {  NavLink, useSearchParams } from "react-router-dom";
 import BlogCard from "../BlogCard/BlogCard";
 import NotFound from "../NotFound/NotFound";
 import { useNavigate } from "react-router-dom";
 export default function Blog() {
-  const [posts, setPosts] = useState([]);
+  
   const [currentpage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
   const [view, setView] = useState("grid");
@@ -20,8 +20,8 @@ export default function Blog() {
   const searchCategory = search.trim();
 
   const filterePosts = category
-    ? posts.filter((post) => post.category === category)
-    : posts;
+    ?postsData.posts.filter((post) => post.category === category)
+    :postsData.posts;
   const searchedPosts = filterePosts.filter((post) =>
     post.title.toLowerCase().includes(search.toLowerCase())
   );
@@ -33,12 +33,7 @@ export default function Blog() {
     pageNumbers.push(i);
   }
 
-  useEffect(() => {
-    axios.get("/Data/Posts.json").then((response) => {
-      console.log(response.data);
-      setPosts(response.data.posts);
-    });
-  }, []);
+ 
 
   useEffect(() => {
     setCurrentPage(1);

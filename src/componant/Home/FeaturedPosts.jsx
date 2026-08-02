@@ -1,16 +1,10 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
+import postsData from "../../Data/Posts.json"
 import { Link } from "react-router-dom";
 
 export default function FeaturedPosts() {
-  const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    axios.get("/Data/Posts.json").then((response) => {
-      console.log(response.data);
-      setPosts(response.data.posts);
-    });
-  }, []);
-  const featuredposts = posts.filter((post) => post.featured);
+ 
+  const featuredposts = postsData.posts.filter((post) => post.featured);
 
   return (
     <>
